@@ -7,7 +7,6 @@ import { Item, BtnDelete, ListFilter } from "./ContactsList.styled";
 
 export default function ContactList() {
     const contacts = useSelector(selectContacts);
-    // const error = useSelector(selectError);
     const filter = useSelector(selectFilter);
     const dispatch = useDispatch();
 
@@ -16,12 +15,11 @@ export default function ContactList() {
     }, [dispatch]);
     
     const getVisibleContacts = () => {
-    const normalizedFilter = filter.toLowerCase();
     return contacts.filter(todo =>
-      todo.name.toLowerCase().includes(normalizedFilter)
+      todo.name.toLowerCase().includes(filter.toLowerCase())
     );
+        
   };
-
     // const handleDelete = () => dispatch(deleteContact(id));
     
     return (
