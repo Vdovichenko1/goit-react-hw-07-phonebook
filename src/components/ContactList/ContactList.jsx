@@ -1,6 +1,4 @@
-import { deleteContact, fetchContacts } from 'redux/contactsApi';
-// import PropTypes from 'prop-types';
-import { useEffect } from 'react';
+import { deleteContact} from 'redux/contactsApi';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts, selectFilter} from 'redux/contacts/contactsSelectors';
 import { Item, BtnDelete, ListFilter } from "./ContactsList.styled";
@@ -9,15 +7,11 @@ export default function ContactList() {
     const contacts = useSelector(selectContacts);
     const filter = useSelector(selectFilter);
     const dispatch = useDispatch();
-
-    useEffect(() => {
-    dispatch(fetchContacts());
-    }, [dispatch]);
     
     const getVisibleContacts = () => {
-    return filter ? contacts.filter(todo =>
+    return contacts.filter(todo =>
       todo.name.toLowerCase().includes(filter.toLowerCase())
-    ) : contacts;
+    );
         
   };
     // const handleDelete = () => dispatch(deleteContact(id));
