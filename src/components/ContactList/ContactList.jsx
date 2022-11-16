@@ -1,4 +1,4 @@
-import { deleteContact, fetchContacts } from 'components/API/contactsApi';
+import { deleteContact, fetchContacts } from 'redux/contactsApi';
 // import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';

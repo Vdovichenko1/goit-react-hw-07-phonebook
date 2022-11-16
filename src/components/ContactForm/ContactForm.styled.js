@@ -4,6 +4,7 @@ export const FormGeneral = styled.form`
   display: flex;
   flex-direction: column;
   text-align: center;
+  width: 320px;
 `;
 
 export const LabelForm = styled.label`

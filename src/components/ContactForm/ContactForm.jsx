@@ -8,7 +8,7 @@ import {
   BtnAddContact,
 } from './ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'components/API/contactsApi';
+import { addContact } from 'redux/contactsApi';
 import { selectContacts } from 'redux/contacts/contactsSelectors';
 import { toast } from 'react-toastify';
 

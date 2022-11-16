@@ -3,6 +3,8 @@ import styled from '@emotion/styled';
 export const FilterForm = styled.div`
   display: flex;
   flex-direction: column;
+  text-align: center;
+  width: 320px;
 `;
 export const LabelFilter = styled.label`
   margin-bottom: 10px;
