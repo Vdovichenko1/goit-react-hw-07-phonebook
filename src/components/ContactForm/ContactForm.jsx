@@ -7,7 +7,7 @@ import {
   InputForm,
   BtnAddContact,
 } from './ContactForm.styled';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'components/API/contactsApi';
 import { selectContacts } from 'redux/contacts/contactsSelectors';
 import { toast } from 'react-toastify';
@@ -15,7 +15,9 @@ import { toast } from 'react-toastify';
 export default function ContactForm() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+  const contacts = useSelector(selectContacts)
   const dispatch = useDispatch();
+  
 
   const handleChangeName = e => {
     setName(e.target.value);
@@ -26,11 +28,11 @@ export default function ContactForm() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    const name = selectContacts.find(
+    const contact = contacts.find(
         e => e.name.toLowerCase() === name.toLowerCase()
       );
-    name
-      ? toast.error(`${selectContacts.name} is already in contacts`)
+    contact
+      ? toast.error(`${contact.name} is already in contacts`)
         : dispatch(addContact({ name, number }))
     setName('');
     setNumber('');

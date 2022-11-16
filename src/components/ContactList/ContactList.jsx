@@ -15,16 +15,19 @@ export default function ContactList() {
     }, [dispatch]);
     
     const getVisibleContacts = () => {
-    return contacts.filter(todo =>
+    return filter ? contacts.filter(todo =>
       todo.name.toLowerCase().includes(filter.toLowerCase())
-    );
+    ) : contacts;
         
   };
     // const handleDelete = () => dispatch(deleteContact(id));
+    const filterContacts = getVisibleContacts();
+    // console.log(filterContacts);
+    // console.log(filter);
     
     return (
         <Item>
-            {getVisibleContacts().map(({ id, name, number }) => (
+            {filterContacts?.map(({ id, name, number }) => (
                 <ListFilter key={id}><span>{name}: </span>{number}
                 <BtnDelete type="button" onClick={() => dispatch(deleteContact(id))}>Delete</BtnDelete></ListFilter>
             ))}
